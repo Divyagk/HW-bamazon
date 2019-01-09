@@ -84,6 +84,8 @@ function question() {
                     function (err) {
                         if (err) throw err;
                         console.log("Your order is placed sucessfully");
+                        totalcost=choiceArray.price*parseInt(answer.units)
+                        console.log("Your total cost is: "+totalcost);
                         question();
                     }
                 );
