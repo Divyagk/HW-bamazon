@@ -28,13 +28,13 @@ function question() {
                 type: "rawlist",
                 name: "id",
                 choices: function () {
-                    var choices = [];
+                    var choiceArray=[];
                     for (i = 0; i < results.length; i++) {
-
-                        choices.push(results[i]);
+                        // console.log(results)
+                        choiceArray.push(results[i].product_name);
 
                     }
-                    return choices;
+                    return choiceArray;
 
                 },
                 message: "Enter the ID of the product you would like to buy?"
@@ -45,9 +45,9 @@ function question() {
                 name: "units",
                 message: "How many units of the product you would like to buy?"
             }
-        ]) .then(function(answer) {
+        ]).then(function (answer) {
 
-            
+
         })
     })
 }
