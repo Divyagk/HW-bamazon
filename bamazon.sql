@@ -22,3 +22,16 @@ VALUES("The Killer Collective","Books",5,100),
 ("Square Grill Pan","Home & Kitchen",35,80),
 ("Craft Wok","Home & Kitchen",50.95,150);
 SELECT * FROM products;
+
+CREATE TABLE departments(
+department_id INT NOT NULL AUTO_INCREMENT,
+department_name VARCHAR(100) NOT NULL,
+over_head_costs DECIMAL(10,2),
+PRIMARY KEY(department_id)
+);
+INSERT INTO departments(department_name,over_head_costs)
+VALUES("Home & kitchen",),
+("Furniture",),
+("Books",),
+("Crafts",),
+("

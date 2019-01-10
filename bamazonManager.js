@@ -91,60 +91,63 @@ function lowinventory() {
 
 
 }
-// function addtoinventory() {
-//     connection.query("SELECT * FROM products", function (err, results) {
-//         if (err) throw err;
-//         inquirer.prompt([
-//             {
-//                 name: "choice",
-//                 type: "rawlist",
-//                 choices: function () {
-//                     var chosenArray = [];
-//                     for (var i = 0; i < results.length; i++) {
-//                         chosenArray.push(results[i].product_name);
-//                     }
-//                     return chosenArray;
-//                 },
-//                 message: "What items would you like to add more?"
-//             },
-//             {
-//                 name: "stockquantiy",
-//                 type: "input",
-//                 message: "How much would you like to add? "
-//             }
 
-//         ]).then(function (answer) {
-//             var chosenproduct;
-//             for (var i = 0; i < results.length; i++) {
-//                 if (results[i].product_name === answer.choice) {
-//                     chosenproduct = results[i];
+function addtoinventory() {
+    connection.query("SELECT * FROM products", function (err, results) {
+        if (err) throw err;
+        inquirer.prompt([
+            {
+                name: "choice",
+                type: "rawlist",
+                choices: function () {
+                    var chosenArray = [];
+                    for (var i = 0; i < results.length; i++) {
+                        chosenArray.push(results[i].product_name);
+                    }
+                    return chosenArray;
+                },
+                message: "What items would you like to add more?"
+            },
+            {
+                name: "stockquantiy",
+                type: "input",
+                message: "How much would you like to add? "
+            }
 
-//                 }
-//  }
-//  if(chosenproduct.product_name===answer.product_name){
+        ]).then(function (answer) {
+            var chosenproduct;
+            for (var i = 0; i < results.length; i++) {
+                if (results[i].product_name === answer.choice) {
+                    chosenproduct = results[i];
 
-//     connection.query(
-//         "UPDATE products SET? WHERE?"[
-//         {
-//             stock_quantity: answer.stockquantity
-//         },
-//         {
-//             product_name: chosenproduct.product_name
-//         }
-//         ],
-//         function (error) {
-//             if (error) throw error;
-//             console.log("Updated stock quantity of " + chosenproduct.product_name);
-//             search();
-//         }
+                }
+            }
+            
+                connection.query(
+                  "UPDATE products SET ? WHERE ?",
+                  [
+                    {
+                        stock_quantity:chosenproduct.stock_quantity + parseInt(answer.stockquantiy)
+                    },
+                    {
+                      product_name:chosenproduct.product_name
+                    }
+                  ],
+                  function(error) {
+                    if (error) throw err;
+                    console.log("Updated stock quantity of " +chosenproduct.product_name+"." );
+                    search();
+                  }
+                );
+            
+        })
+    })
 
-//     )
-//  }
-//         })
-//     })
+
+}
 
 
-// }
+
 function addnewproduct() {
     inquirer.prompt([
         {
