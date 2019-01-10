@@ -82,7 +82,7 @@ function lowinventory() {
                 // console.log("Item ID: " + results[i].item_id + " | " + " Product name: " + results[i].product_name + " | "
                 //     + " Department name: " + results[i].department_name + " | "
                 //     + " Price: " + results[i].price + " | " + " Stock quantity: " + results[i].stock_quantity);
-                console.log("Product name:"+results[i].product_name);
+                console.log("Product name:" + results[i].product_name);
             }
         }
 
@@ -91,9 +91,46 @@ function lowinventory() {
 
 
 }
-// function addtoinventory() {
+function addtoinventory() {
+    connection.query("SELECT * FROM products", function (err, results) {
+        if (err) throw err;
+        inquirer.prompt([
+            {
+                name: "choice",
+                type: "rawlist",
+                choices: function () {
+                    var chosenArray = [];
+                    for (var i = 0; i < results.length; i++) {
+                        chosenArray.push(results[i]);
+                    }
+                    return chosenArray;
+                },
+                message: "What items would you like to add more?"
+            },
+            {
+                name: "stockquantiy",
+                type: "input",
+                message: "How much would you like to add? "
+            }
 
-// }
+        ]).then(function (answer) {
+
+
+
+
+
+
+
+        })
+
+
+
+
+
+    })
+
+
+}
 // function addnewproduct() {
 
 // }
