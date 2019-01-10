@@ -50,7 +50,13 @@ function question() {
             {
                 type: "input",
                 name: "units",
-                message: "How many units of the product you would like to buy?"
+                message: "How many units of the product you would like to buy?",
+                validate: function(value) {
+                    if (isNaN(value) === false) {
+                      return true;
+                    }
+                    return false;
+                  }
             }
         ]).then(function (answer) {
             // console.log(answer.id)

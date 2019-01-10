@@ -30,8 +30,8 @@ over_head_costs DECIMAL(10,2),
 PRIMARY KEY(department_id)
 );
 INSERT INTO departments(department_name,over_head_costs)
-VALUES("Home & kitchen",),
-("Furniture",),
-("Books",),
-("Crafts",),
+VALUES("Home & kitchen",15000),
+("Furniture",26000),
+("Books",32000),
+("Crafts",16000),
 ("

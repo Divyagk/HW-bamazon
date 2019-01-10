@@ -111,7 +111,13 @@ function addtoinventory() {
             {
                 name: "stockquantiy",
                 type: "input",
-                message: "How much would you like to add? "
+                message: "How much would you like to add? ",
+                validate: function(value) {
+                    if (isNaN(value) === false) {
+                      return true;
+                    }
+                    return false;
+                  }
             }
 
         ]).then(function (answer) {
