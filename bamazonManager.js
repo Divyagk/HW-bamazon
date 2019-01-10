@@ -60,21 +60,37 @@ function search() {
 }
 
 function viewproduct() {
-connection.query("SELECT * FROM products",function(err,results){
-if(err) throw err;
-for(var i=0;i<results.length;i++){
-    // console.log(results[i]);
-    console.log("Item ID: "+results[i].item_id + " | " +" Product name: "+ results[i].product_name + " | "+" Price: " + results[i].price + " | "+" Stock quantity: " + results[i].stock_quantity);
+    connection.query("SELECT * FROM products", function (err, results) {
+        if (err) throw err;
+        for (var i = 0; i < results.length; i++) {
+            // console.log(results[i]);
+            console.log("Item ID: " + results[i].item_id + " | " + " Product name: " + results[i].product_name + " | "
+                + " Department name: " + results[i].department_name + " | "
+                + " Price: " + results[i].price + " | " + " Stock quantity: " + results[i].stock_quantity);
+        }
+
+        search();
+    })
 }
 
 
-})
+function lowinventory() {
+    connection.query("SELECT * FROM products", function (err, results) {
+        if (err) throw err;
+        for (var i = 0; i < results.length; i++) {
+            if (results[i].stock_quantity < 5) {
+                // console.log("Item ID: " + results[i].item_id + " | " + " Product name: " + results[i].product_name + " | "
+                //     + " Department name: " + results[i].department_name + " | "
+                //     + " Price: " + results[i].price + " | " + " Stock quantity: " + results[i].stock_quantity);
+                console.log("Product name:"+results[i].product_name);
+            }
+        }
+
+        search();
+    })
+
+
 }
-
-
-// function lowinventory() {
-
-// }
 // function addtoinventory() {
 
 // }

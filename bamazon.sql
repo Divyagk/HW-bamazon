@@ -15,10 +15,10 @@ VALUES("The Killer Collective","Books",5,100),
 ("The Snow Gypsy","Books",4.99,75),
 ("Becoming","books",31,500),
 ("Mod Podge","Crafting",4.88,30),
-("Ventincre Colored Masking Washi Tape","Crafting",9.73,10),
+("Ventincre Colored Masking Washi Tape","Crafting",9.73,2),
 ("Hot Glue Gun","Crafting",6,50),
-("Saucepan","Home & Kitchen",15.47,75),
-("Pressure Cooker","Home & Kitchen",42.67,50),
+("Saucepan","Home & Kitchen",15.47,3),
+("Pressure Cooker","Home & Kitchen",42.67,4),
 ("Square Grill Pan","Home & Kitchen",35,80),
 ("Craft Wok","Home & Kitchen",50.95,150);
 SELECT * FROM products;
