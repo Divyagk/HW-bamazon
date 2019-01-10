@@ -34,6 +34,53 @@ function search() {
 
 
         }
-    ])
+    ]).then(function (answer) {
+
+        switch (answer.action) {
+            case "View Products for Sale":
+                viewproduct();
+                break;
+
+            case "View Low Inventory":
+                lowinventory();
+                break;
+
+            case "Add to Inventory":
+                addtoinventory();
+                break;
+
+            case "Add New Product":
+                addnewproduct();
+                break;
+
+        }
+
+    })
 
 }
+
+function viewproduct() {
+connection.query("SELECT * FROM products",function(err,results){
+if(err) throw err;
+for(var i=0;i<results.length;i++){
+    // console.log(results[i]);
+    console.log("Item ID: "+results[i].item_id + " | " +" Product name: "+ results[i].product_name + " | "+" Price: " + results[i].price + " | "+" Stock quantity: " + results[i].stock_quantity);
+}
+
+
+})
+}
+
+
+// function lowinventory() {
+
+// }
+// function addtoinventory() {
+
+// }
+// function addnewproduct() {
+
+// }
+
+
+
