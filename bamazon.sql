@@ -12,7 +12,7 @@ PRIMARY KEY(item_id )
 
 INSERT INTO products(product_name,department_name,price,stock_quantity)
 VALUES("The Killer Collective","Books",5,100),
-("The Snow Gypsy","Books",4,99,75),
+("The Snow Gypsy","Books",4.99,75),
 ("Becoming","books",31,500),
 ("Mod Podge","Crafting",4.88,30),
 ("Ventincre Colored Masking Washi Tape","Crafting",9.73,10),

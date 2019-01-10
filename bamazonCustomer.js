@@ -32,7 +32,7 @@ function question() {
                     var choiceArray = [];
                     for (var i = 0; i < results.length; i++) {
                         // console.log(results[i].item_id)
-                        choiceArray.push(results[i].item_id + " Product Name: " + results[i].product_name + " Price: " + results[i].price);
+                        choiceArray.push("Item id: " +results[i].item_id + " Product Name: " + results[i].product_name + " Price: " + results[i].price);
 
                     }
                     return choiceArray;
@@ -64,10 +64,11 @@ function question() {
                     choiceArray = results[i];
                 }
             }
-            console.log(choiceArray.item_id)
+            // console.log(choiceArray.item_id)
+
             if (choiceArray.stock_quantity > parseInt(answer.units)) {
                 choiceArray.stock_quantity= choiceArray.stock_quantity - parseInt(answer.units);
-                console.log(choiceArray.stock_quantity)
+                // console.log(choiceArray.stock_quantity)
                 
                     connection.query(
                         "UPDATE products SET ? WHERE ?",
