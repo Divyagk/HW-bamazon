@@ -91,49 +91,103 @@ function lowinventory() {
 
 
 }
-function addtoinventory() {
-    connection.query("SELECT * FROM products", function (err, results) {
-        if (err) throw err;
-        inquirer.prompt([
+// function addtoinventory() {
+//     connection.query("SELECT * FROM products", function (err, results) {
+//         if (err) throw err;
+//         inquirer.prompt([
+//             {
+//                 name: "choice",
+//                 type: "rawlist",
+//                 choices: function () {
+//                     var chosenArray = [];
+//                     for (var i = 0; i < results.length; i++) {
+//                         chosenArray.push(results[i].product_name);
+//                     }
+//                     return chosenArray;
+//                 },
+//                 message: "What items would you like to add more?"
+//             },
+//             {
+//                 name: "stockquantiy",
+//                 type: "input",
+//                 message: "How much would you like to add? "
+//             }
+
+//         ]).then(function (answer) {
+//             var chosenproduct;
+//             for (var i = 0; i < results.length; i++) {
+//                 if (results[i].product_name === answer.choice) {
+//                     chosenproduct = results[i];
+
+//                 }
+//  }
+//  if(chosenproduct.product_name===answer.product_name){
+
+//     connection.query(
+//         "UPDATE products SET? WHERE?"[
+//         {
+//             stock_quantity: answer.stockquantity
+//         },
+//         {
+//             product_name: chosenproduct.product_name
+//         }
+//         ],
+//         function (error) {
+//             if (error) throw error;
+//             console.log("Updated stock quantity of " + chosenproduct.product_name);
+//             search();
+//         }
+
+//     )
+//  }
+//         })
+//     })
+
+
+// }
+function addnewproduct() {
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "productname",
+            message: "What product would you like to add? "
+        },
+        {
+            type: "input",
+            name: "departmentname",
+            message: "What deptartment it belongs?"
+        },
+        {
+            type: "input",
+            name: "price",
+            message: "Price of the product?"
+        },
+        {
+            type: "input",
+            name: "stockquantity",
+            message: "Quantity of the product?"
+        }
+    ]).then(function (answer) {
+        connection.query(
+            "INSERT INTO products SET? ",
+
             {
-                name: "choice",
-                type: "rawlist",
-                choices: function () {
-                    var chosenArray = [];
-                    for (var i = 0; i < results.length; i++) {
-                        chosenArray.push(results[i]);
-                    }
-                    return chosenArray;
-                },
-                message: "What items would you like to add more?"
+                product_name: answer.productname,
+                department_name: answer.departmentname,
+                price: answer.price,
+                stock_quantity: answer.stockquantity
             },
-            {
-                name: "stockquantiy",
-                type: "input",
-                message: "How much would you like to add? "
+            function (error) {
+                if (error) throw error;
+                console.log("The new product is added.")
+                search();
             }
-
-        ]).then(function (answer) {
-
-
-
-
-
-
-
-        })
-
-
-
-
+        )
 
     })
 
 
 }
-// function addnewproduct() {
-
-// }
 
 
 
