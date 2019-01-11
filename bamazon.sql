@@ -7,20 +7,21 @@ product_name VARCHAR(100) NOT NULL,
 department_name VARCHAR(100) NOT NULL,
 price DECIMAL(10,2),
 stock_quantity INTEGER(10),
+product_sales DECIMAL(10,2),
 PRIMARY KEY(item_id )
 );
 
-INSERT INTO products(product_name,department_name,price,stock_quantity)
-VALUES("The Killer Collective","Books",5,100),
-("The Snow Gypsy","Books",4.99,75),
-("Becoming","books",31,500),
-("Mod Podge","Crafting",4.88,30),
-("Ventincre Colored Masking Washi Tape","Crafting",9.73,2),
-("Hot Glue Gun","Crafting",6,50),
-("Saucepan","Home & Kitchen",15.47,3),
-("Pressure Cooker","Home & Kitchen",42.67,4),
-("Square Grill Pan","Home & Kitchen",35,80),
-("Craft Wok","Home & Kitchen",50.95,150);
+INSERT INTO products(product_name,department_name,price,stock_quantity,product_sales)
+VALUES("The Killer Collective","Books",5,100,20000),
+("The Snow Gypsy","Books",4.99,75,32000),
+("Becoming","books",31,500,42000),
+("Mod Podge","Crafting",4.88,30,15000),
+("Ventincre Colored Masking Washi Tape","Crafting",9.73,2,50000),
+("Hot Glue Gun","Crafting",6,50,30000),
+("Saucepan","Home & Kitchen",15.47,3,12000),
+("Pressure Cooker","Home & Kitchen",42.67,4,43000),
+("Square Grill Pan","Home & Kitchen",35,80,15000),
+("Craft Wok","Home & Kitchen",50.95,150,20000);
 SELECT * FROM products;
 
 CREATE TABLE departments(
@@ -38,6 +39,7 @@ VALUES("Home & kitchen",15000),
 ("Clothing",25000),
 ("kid",31000),
 ("Entertaiment",45000),
-("Electronics",38900);
+("Electronics",38900),
+("Lights",15000);
 SELECT * FROM departments;
  

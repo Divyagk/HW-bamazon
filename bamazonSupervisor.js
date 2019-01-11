@@ -49,18 +49,50 @@ function option() {
 
 
 function productsale() {
-    connection.query("SELECT  department_id ,department_name ,over_head_costs FROM departments", 
-    function (err, results) {
+    var query= "SELECT departments.department_id,departments.department_name,departments.over_head_costs,products.product_sales FROM departments LEFT JOIN products ON products.item_id=departments.department_id";
+
+ 
+    connection.query(query,function (err, results) {
         if (err) throw err;
         // to display the database details in a table
         console.table(results);
+        option();
 
     });
 
 }
-// function newdepartment(){
+function newdepartment(){
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "departmentname",
+            message: "What department would you like to add? "
+        },
+        {
+            type: "input",
+            name: "overheadcosts",
+            message: "What is the over head cost of that department?"
+        }
+    ]).then(function (answer) {
+        connection.query(
+            "INSERT INTO departments SET? ",
 
-// }
+            {
+                department_name:answer.departmentname,
+                over_head_costs:answer.overheadcosts
+
+            },
+            function (error) {
+                if (error) throw error;
+                console.log("The new department is added is added.")
+                option();
+            }
+        )
+
+    })
+
+
+}
 
 
 

@@ -74,24 +74,29 @@ function question() {
 
             if (choiceArray.stock_quantity > parseInt(answer.units)) {
                 choiceArray.stock_quantity= choiceArray.stock_quantity - parseInt(answer.units);
+                totalcosts=choiceArray.product_sales+choiceArray.price*parseInt(answer.units);
                 // console.log(choiceArray.stock_quantity)
                 
                     connection.query(
                         "UPDATE products SET ? WHERE ?",
                         [
                           {
-                            stock_quantity: choiceArray.stock_quantity
+                            stock_quantity: choiceArray.stock_quantity,
+                            product_sales:totalcosts
+                            
                           },
                           {
                         
-                            item_id:choiceArray.item_id
+                            item_id:choiceArray.item_id,
+                            item_id:choiceArray.item_id,
+
                           }
                         ],
                     
                     function (err) {
                         if (err) throw err;
                         console.log("Your order is placed sucessfully");
-                        totalcost=choiceArray.price*parseInt(answer.units)
+                        totalcost=choiceArray.price*parseInt(answer.units);
                         console.log("Your total cost is: "+totalcost);
                         question();
                     }
