@@ -1,5 +1,6 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
+const cTable = require('console.table');
 
 // create the connection information for the sql database
 var connection = mysql.createConnection({
@@ -48,8 +49,18 @@ function option() {
 
 
 function productsale() {
+    connection.query("SELECT  department_id ,department_name ,over_head_costs FROM departments", 
+    function (err, results) {
+        if (err) throw err;
+        // to display the database details in a table
+        console.table(results);
 
-} 
-function newdepartment(){
+    });
 
 }
+// function newdepartment(){
+
+// }
+
+
+

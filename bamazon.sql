@@ -34,4 +34,10 @@ VALUES("Home & kitchen",15000),
 ("Furniture",26000),
 ("Books",32000),
 ("Crafts",16000),
-("
+("Sports & Outdoors",30000),
+("Clothing",25000),
+("kid",31000),
+("Entertaiment",45000),
+("Electronics",38900);
+SELECT * FROM departments;
+ 

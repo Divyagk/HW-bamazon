@@ -24,12 +24,12 @@ MySQLWorkbench & Mamp
 
 <h4>BamazonCustomer.js<h4>
 
-![Spotify](./images/screenshot.PNG)
+![customer](./images/screenshot.PNG)
 
 <h4>BamazonManager.js <h4>
 
-![Spotify](./images/screenshot1.PNG)
+![manager](./images/screenshot1.PNG)
 
 <h4>BamazonSupervisor.js<h4>
 
-![Spotify](./images/screenshot1.PNG)
+![supervisor](./images/screenshot1.PNG)
