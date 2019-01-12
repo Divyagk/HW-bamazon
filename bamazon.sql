@@ -31,15 +31,26 @@ over_head_costs DECIMAL(10,2),
 PRIMARY KEY(department_id)
 );
 INSERT INTO departments(department_name,over_head_costs)
-VALUES("Home & kitchen",15000),
-("Furniture",26000),
-("Books",32000),
+VALUES("Home & kitchen",43000),
+("Furniture",34000),
+("Books",52000),
 ("Crafts",16000),
-("Sports & Outdoors",30000),
-("Clothing",25000),
+("Sports & Outdoors",65000),
+("Clothing",55000),
 ("kid",31000),
 ("Entertaiment",45000),
 ("Electronics",38900),
-("Lights",15000);
+("Lights",35000);
 SELECT * FROM departments;
  
+ SELECT 
+    departments.department_id,
+    departments.department_name,
+    departments.over_head_costs,
+    products.product_sales,
+    departments.over_head_costs-products.product_sales total_profit
+    
+FROM
+    departments
+        LEFT JOIN
+    products ON products.item_id = departments.department_id;

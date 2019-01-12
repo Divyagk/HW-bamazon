@@ -49,10 +49,10 @@ function option() {
 
 
 function productsale() {
-    var query= "SELECT departments.department_id,departments.department_name,departments.over_head_costs,products.product_sales FROM departments LEFT JOIN products ON products.item_id=departments.department_id";
+    var query = "SELECT departments.department_id,departments.department_name,departments.over_head_costs,products.product_sales,    departments.over_head_costs-products.product_sales total_profit FROM departments LEFT JOIN products ON products.item_id=departments.department_id";
 
- 
-    connection.query(query,function (err, results) {
+
+    connection.query(query, function (err, results) {
         if (err) throw err;
         // to display the database details in a table
         console.table(results);
@@ -61,7 +61,7 @@ function productsale() {
     });
 
 }
-function newdepartment(){
+function newdepartment() {
     inquirer.prompt([
         {
             type: "input",
@@ -78,8 +78,8 @@ function newdepartment(){
             "INSERT INTO departments SET? ",
 
             {
-                department_name:answer.departmentname,
-                over_head_costs:answer.overheadcosts
+                department_name: answer.departmentname,
+                over_head_costs: answer.overheadcosts
 
             },
             function (error) {
@@ -96,3 +96,11 @@ function newdepartment(){
 
 
 
+// SELECT
+//  customers.customerName,
+//  COUNT(orders.orderNumber) total
+// FROM
+//  customers
+// INNER JOIN orders ON customers.customerNumber = orders.customerNumber
+// GROUP BY
+//  customerName
