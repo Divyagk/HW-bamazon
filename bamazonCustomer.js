@@ -1,5 +1,6 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
+const cTable = require('console.table');
 
 // create the connection information for the sql database
 var connection = mysql.createConnection({
@@ -20,32 +21,33 @@ connection.connect(function (err) {
     question();
 });
 
+
 function question() {
+
+    var query = "SELECT products.item_id, products.product_name,products.price FROM products";
+
+
+    connection.query(query, function (err, results) {
+        if (err) throw err;
+        // to display the database details in a table
+        console.table(results);
+        
+
+    });
+
     connection.query("SELECT * FROM products", function (err, results) {
         if (err) throw err;
+        
         inquirer.prompt([
+            
             {
 
-                name: "list",
-                type: "list",
-                choices: function () {
-                    var choiceArray = [];
-                    for (var i = 0; i < results.length; i++) {
-                        // console.log(results[i].item_id)
-                        choiceArray.push("Item id: " +results[i].item_id + " Product Name: " + results[i].product_name + " Price: " + results[i].price);
-
-                    }
-                    return choiceArray;
-
-                },
-                // message: "Enter the ID of the product you would like to buy?"
-
-            },
-            {
-                name: "id",
+                name:"id",
                 type: "input",
                 message: "Enter the ID of the product you would like to buy?"
+
             },
+            
 
             {
                 type: "input",
@@ -97,7 +99,7 @@ function question() {
                         if (err) throw err;
                         console.log("Your order is placed sucessfully");
                         totalcost=choiceArray.price*parseInt(answer.units);
-                        console.log("Your total cost is: "+totalcost);
+                        console.log("Your total cost is $"+totalcost);
                         question();
                     }
                 );

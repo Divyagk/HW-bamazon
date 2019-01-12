@@ -84,7 +84,7 @@ function newdepartment() {
             },
             function (error) {
                 if (error) throw error;
-                console.log("The new department is added is added.")
+                console.log("The new department is added.")
                 option();
             }
         )
@@ -96,11 +96,3 @@ function newdepartment() {
 
 
 
-// SELECT
-//  customers.customerName,
-//  COUNT(orders.orderNumber) total
-// FROM
-//  customers
-// INNER JOIN orders ON customers.customerNumber = orders.customerNumber
-// GROUP BY
-//  customerName
