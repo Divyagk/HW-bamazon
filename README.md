@@ -22,7 +22,7 @@ MySQLWorkbench & Mamp
 
 <h3>Working example:</h3>
 
-<h4>BamazonCustomer.js<h4>
+<h4>1.BamazonCustomer.js<h4>
 
 <p>Prints the products in the store.</p>
 
@@ -33,13 +33,13 @@ MySQLWorkbench & Mamp
 <p>If there is a sufficient amount of the product in stock, it will return the total for that purchase.
 However, if there is not enough of the product in stock, it will tell the user that there isn't enough of the product.
 If the purchase goes through, it updates the stock quantity to reflect the purchase.
-It will also update the product sales in the department table.</p> -->
+It will also update the product sales in the department table.</p> 
 
 
 ![customer](./images/screenshot.PNG)
 
 
-<h4>BamazonManager.js <h4>
+<h4>2.BamazonManager.js <h4>
 
 <p>Starts with a menu:</p>
 
@@ -57,7 +57,7 @@ It will also update the product sales in the department table.</p> -->
 
 ![manager](./images/screenshot1.PNG)
 
-<h4>BamazonSupervisor.js<h4>
+<h4>3.BamazonSupervisor.js<h4>
 
 <p>Starts with a menu:</p>
 
