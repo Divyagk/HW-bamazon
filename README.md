@@ -32,4 +32,4 @@ MySQLWorkbench & Mamp
 
 <h4>BamazonSupervisor.js<h4>
 
-![supervisor](./images/screenshot1.PNG)
+![supervisor](./images/screenshot2.PNG)
